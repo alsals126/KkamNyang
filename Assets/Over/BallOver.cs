@@ -7,19 +7,16 @@ using UnityEngine.Networking;
 public class BallOver : MonoBehaviour
 {
     public GameObject scoreText;
-    public float time;
+    float btime;
+    string btime_str;
     public string nickname = LoginManager.name;
-    public string PhoneN = LoginManager.phone;
-    public string major = LoginManager.Major;
-    public string str;
+    public string phoneNum = LoginManager.phone;
 
     void Start()
     {
-
-        time = BTimer.LimitTimeB;
-        str = string.Format("{0:f2}", time);
-        //StartCoroutine(GetScore());
-        this.scoreText.GetComponent<Text>().text = str + "  초";
+        btime = BTimer.LimitTimeB;
+        btime_str = btime.ToString("F2");
+        this.scoreText.GetComponent<Text>().text = btime_str + "  초";
         StartCoroutine(GetScore());
     }
 
@@ -28,10 +25,8 @@ public class BallOver : MonoBehaviour
     {
         WWWForm form = new WWWForm();
         form.AddField("Input_nickname", this.nickname);
-        form.AddField("Input_PNum", this.PhoneN);
-        form.AddField("Input_major", this.major);
-
-        form.AddField("PiguScore", this.str);
+        form.AddField("Input_PNum", this.phoneNum);
+        form.AddField("PiguScore", btime_str);
 
         using (UnityWebRequest www = UnityWebRequest.Post("http://itshow.dothome.co.kr/GetPiguScore.php", form))
         {

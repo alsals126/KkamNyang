@@ -8,9 +8,8 @@ public class RunOverScript : MonoBehaviour
 {
     public GameObject scoreText;
     int score;
-    public string nickname = LoginManager.name;
-    public string PhoneN = LoginManager.phone;
-    public string major = LoginManager.Major;
+    string nickname = LoginManager.name;
+    string PhoneN = LoginManager.phone;
 
     public static int rscore = 0;
 
@@ -19,17 +18,17 @@ public class RunOverScript : MonoBehaviour
         //score = director.GetComponent<GameDirector>().point;
         //StartCoroutine(GetScore());
         score = GameDirector.Runpoint;
-        //StartCoroutine(GetScore());
-        this.scoreText.GetComponent<Text>().text = this.score.ToString() + "  점";
         StartCoroutine(GetScore());
+        this.scoreText.GetComponent<Text>().text = this.score.ToString() + "  점";
+        //StartCoroutine(GetScore());
     }
 
     IEnumerator GetScore()
     {
+        UnityEngine.Debug.Log(nickname);
         WWWForm form = new WWWForm();
-        form.AddField("Input_nickname", this.nickname);
-        form.AddField("Input_PNum", this.PhoneN);
-        form.AddField("Input_major", this.major);
+        form.AddField("Input_nickname", nickname);
+        form.AddField("Input_PNum", PhoneN);
         form.AddField("RunningScore", this.score);
 
         rscore = this.score;

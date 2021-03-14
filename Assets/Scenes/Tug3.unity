@@ -670,7 +670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   readyText: {fileID: 122583471}
-  Ready: {fileID: 0}
+  Ready: {fileID: 1502522631}
 --- !u!1 &319278289
 GameObject:
   m_ObjectHideFlags: 0

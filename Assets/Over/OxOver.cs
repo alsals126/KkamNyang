@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
+using System.Diagnostics;
 
 public class OxOver : MonoBehaviour
 {
     public GameObject scoreText;
+    string nickname=LoginManager.name;
+    string phone=LoginManager.phone;
     int score;
-    public string nickname = LoginManager.name;
-    public string PhoneN = LoginManager.phone;
-    public string major = LoginManager.Major;
+    
 
     void Start()
     {
@@ -23,11 +24,11 @@ public class OxOver : MonoBehaviour
     IEnumerator GetScore()
     {
         WWWForm form = new WWWForm();
-        form.AddField("Input_nickname", this.nickname);
-        form.AddField("Input_PNum", this.PhoneN);
-        form.AddField("Input_major", this.major);
+        form.AddField("Input_nickname", nickname);
+        form.AddField("Input_PNum", phone);
         form.AddField("OXScore", this.score);
 
+        UnityEngine.Debug.Log(nickname);
         using (UnityWebRequest www = UnityWebRequest.Post("http://itshow.dothome.co.kr/GetOXQuizScore.php", form))
         {
             yield return www.SendWebRequest();

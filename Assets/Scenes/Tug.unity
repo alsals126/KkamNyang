@@ -661,7 +661,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   readyText: {fileID: 122583471}
-  Ready: {fileID: 0}
+  Ready: {fileID: 1502522631}
 --- !u!1 &374869727
 GameObject:
   m_ObjectHideFlags: 0
@@ -1042,16 +1042,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69252467a34dd474b85eb1d1cafc4f6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randomImage: {fileID: 0}
-  up: {fileID: 21300000, guid: fb5fc6887d80a2b4b9c2fee0f316995e, type: 3}
-  down: {fileID: 21300000, guid: d5912c87ea96343448e4a935af366186, type: 3}
-  right: {fileID: 21300000, guid: 09e70d31b41ec1240b579a0752c71568, type: 3}
-  left: {fileID: 21300000, guid: e555c526b2ea5ab4ab731738c708447d, type: 3}
-  images: []
   helathbar: {fileID: 1330937005}
   readyP: {fileID: 1502522631}
   roundT: {fileID: 819748503}
-  numtxt: {fileID: 0}
   LimitTime: 0
 --- !u!4 &656698327
 Transform:

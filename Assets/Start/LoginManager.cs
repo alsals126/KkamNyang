@@ -15,11 +15,10 @@ public class LoginManager : MonoBehaviour
     public InputField NameField;
     public InputField P_numberField;
     public Dropdown Select_m;
-    public static string M = " ";
-    public static string name = "";
-    public static string phone = "";
-    public static string Major = M;
 
+    public static string name;
+    public static string phone;
+    public static string Major;
 
     public void LoginBtn()
     {
@@ -28,6 +27,8 @@ public class LoginManager : MonoBehaviour
 
     IEnumerator LoginGo()
     {
+        name = NameField.text.ToString();
+        phone = P_numberField.text.ToString();
         string major = "";
         if (Select_m.value == 0)
             major = "뉴미디어소프트웨어과";
@@ -36,12 +37,15 @@ public class LoginManager : MonoBehaviour
         else
             major = "뉴미디어디자인과";
 
+        Major = major;
+
         if (P_numberField.text.Length == 11 && NameField.text.Length != 0)
         {
+
             WWWForm form = new WWWForm();
             form.AddField("Input_nickname", NameField.text);
             form.AddField("Input_PNum", P_numberField.text);
-            form.AddField("Input_major", major);
+            form.AddField("Input_major",major);
 
             using (UnityWebRequest www = UnityWebRequest.Post("http://itshow.dothome.co.kr/CreateAcc_3.php", form))
             {
